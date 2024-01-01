@@ -1,0 +1,65 @@
+{
+  "name": "s3-fifo-cache",
+  "version": "0.1.0",
+  "description": "",
+  "keywords": [
+    "cache",
+    "lru",
+    "memory cache"
+  ],
+  "homepage": "https://github.com/Tom910/s3-fifo-cache",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Tom910/s3-fifo-cache.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "tsup": {
+    "entryPoints": [
+      "src/index.ts"
+    ],
+    "format": [
+      "cjs",
+      "esm"
+    ],
+    "dts": true,
+    "treeshake": true,
+    "clean": true
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "jest",
+    "benchmark": "npm run benchmark:hitrate && npm run benchmark:perf",
+    "benchmark:hitrate": "tsx benchmark/hit-rate.ts",
+    "benchmark:perf": "tsx benchmark/hit-rate.ts",
+    "prepublishOnly": "pnpm run build"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.5",
+    "@types/node": "^18",
+    "jest": "^29.6.4",
+    "lru-cache": "^10.0.1",
+    "prettier": "^2.8.8",
+    "quick-lru": "^7.0.0",
+    "tiny-lru": "^11.2.3",
+    "tinybench": "^2.5.1",
+    "ts-jest": "^29.1.1",
+    "tsup": "^7.2.0",
+    "tsx": "^3.13.0",
+    "typescript": "^5.2.2"
+  }
+}
