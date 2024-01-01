@@ -1,5 +1,5 @@
 import { Bench } from "tinybench";
-import { S3FifoCache } from "../src/s3-fifo/index";
+import { S3FifoCache } from "../src/index";
 import { LRUCache } from "lru-cache";
 import QuickLRU from 'quick-lru';
 import { lru } from 'tiny-lru';
